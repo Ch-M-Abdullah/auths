@@ -1,24 +1,5 @@
-# README
+# auths
+Implementation of Devise and CanCanCan for Authentication and Authorization
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is not a Functional App, it is just to show how CanCanCan and Devise can be combined to implement Authentication and Authorization in your application. I have given the deletion rights to Admin, Creation Rights to a Signed_in User, can viewing rights to a user who hasen't signed in.
