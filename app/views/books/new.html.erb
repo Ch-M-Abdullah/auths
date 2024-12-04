@@ -1,0 +1,11 @@
+<% content_for :title, "New book" %>
+
+<h1 style="text-align: center; font-size: 3rem;">New Book</h1>
+
+<%= render "form", book: @book %>
+
+<br>
+
+<div>
+  <%= link_to "\u2190 Back to books", books_path, class:"new-book-button", style:"left: 5%; right: auto" %>
+</div>
