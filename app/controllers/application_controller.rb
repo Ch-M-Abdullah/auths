@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+  include Pagy::Backend
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
 
-  rescue_from CanCan::AccessDenied do |err|
+  rescue_from Pundit::NotAuthorizedError do |err|
     if user_signed_in?
       redirect_to books_path, alert: "Not Authorized To Perform This Action"
     else
