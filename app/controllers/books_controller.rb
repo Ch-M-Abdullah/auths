@@ -1,9 +1,13 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [ :show, :index ]
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @pagy, @books = pagy(Book.all, items: 3, limit: 3, size: 1)
+    Rails.logger.info("Pagy Metadata: #{@pagy.inspect}")
+    Rails.logger.info("Total Pages: #{@pagy.pages}")
+    Rails.logger.info("Books: #{@books.inspect}")
   end
 
   # GET /books/1 or /books/1.json
@@ -71,7 +75,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.fetch(:book, {})
+      # params.fetch(:book, {})
       params.require(:book).permit(:title, :description, :author, :publish_year)
     end
 end

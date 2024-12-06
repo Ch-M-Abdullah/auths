@@ -13,6 +13,11 @@
       <%end%>
       
   <% end %>
+
+  <div style="width: 100%; display:flex; justify-content:center; align-items:center;">
+    <%== pagy_nav(@pagy) %>
+  </div>
+
 </div>
 
 <%= link_to "Add book", new_book_path, class:"new-book-button"%>

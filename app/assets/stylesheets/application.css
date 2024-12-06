@@ -12,3 +12,15 @@ html{
     background-color: #333333;
     color: whitesmoke;
 }
+
+.pagy a {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+.pagy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
